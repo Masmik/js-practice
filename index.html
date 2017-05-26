@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="wrapper">
+    <h1>Registration form</h1>
+    <form action="" autocomplete="on">
+        <div class="contact-info">
+            <div class="info first-name">
+                <label for="firstName">First Name</label>
+                <input data-rule="required needName" id="firstName" name="firstName" type="text" autofocus>
+            </div>
+            <div class="info last-name">
+                <label for="lastName">Last Name</label>
+                <input data-rule="required needName" id="lastName" name="lastName" type="text" autofocus>
+            </div>
+            <div class="info phone-number">
+                <label for="tel">Enter your phone number</label>
+                <input data-rule="required phone" type="tel" name="tel" id="tel">
+            </div>
+            <div class="info email">
+                <label for="email">Email</label>
+                <input data-rule="required email" name="email" type="text" id="email">
+            </div>
+            <div class="info password">
+                <label for="password">Password</label>
+                <input data-rule="required password" name="password" type="password" id="password">
+            </div>
+            <div class="info password repeatPassword">
+                <label for="repeat_password">Repeat password</label>
+                <input data-rule="required equalWith" data-equalId="password" name="repeatPassword" type="password"
+                       id="repeat_password">
+            </div>
+        </div>
+        <div class="yellow-block adress">
+            <h2>Delivery Adress</h2>
+            <div class="city">
+                <label for="city">City</label>
+                <select data-rule="required city" name="select" id="city">
+                    <option value="value0">Select your city</option>
+                    <option value="value1">Kiyv</option>
+                    <option value="value2">Lviv</option>
+                    <option value="value3">Odessa</option>
+                    <option value="value3">Cherkasy</option>
+                </select>
+            </div>
+            <div class="street">
+                <label for="street">Street</label>
+                <input data-rule="required needName" type="text" id="street" name="street">
+            </div>
+            <div class="house">
+                <label for="house">House</label>
+                <input data-rule="required house" type="text" id="house" name="house">
+            </div>
+            <div class="apartment">
+                <label for="apartment">Apartment</label>
+                <input data-rule="required appartment" type="text" id="apartment" name="appartment">
+            </div>
+        </div>
+        <div class="yellow-block Payment">
+            <h2>Payment</h2>
+            <div class="name-card">
+                <label for="nameCard">Name on card</label>
+                <input data-rule="required cc-name" name="nameCard" id="nameCard" autocomplete="cc-name">
+            </div>
+            <div class="card-number">
+                <label for="cardNumber">Card Number</label>
+                <input data-rule="required cc-number" type="text" class="form-control" name="cardNumber" id="cardNumber"
+                       autocomplete="off"
+                       pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$"/>
+            </div>
+            <div class="expiration">
+                <label for="cardExpiry">Expiration Date</label>
+                <input data-rule="required cc-exp" type="text" class="form-control" name="cardExpiry" id="cardExpiry"
+                       autocomplete="off"/>
+            </div>
+            <div class="cv">
+                <label for="cardCVC">CV Code</label>
+                <input data-rule="required cc-cvc" type="text" class="form-control" name="cardCVC" id="cardCVC"
+                       autocomplete="off"/>
+            </div>
+        </div>
+        <div class="agreement">
+            <input data-rule="required" type="checkbox" id="agreement" name="agreement">
+            <label for="agreement">Contact information is listed correctly</label>
+        </div>
+        <input type="submit" value="Validate" class="validate-btn">
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="mask-input-plugin.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

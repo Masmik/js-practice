@@ -37,7 +37,7 @@ var rules = {
             // console.log(pass);
     },
     password: function (el) {
-        var regNumber = /(?=^.{4,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+        var regNumber = (/^(?=.*\d)[0-9a-zA-Z]{3,}$/);
         return (regNumber.test(el.value));
     },
     city: function (el) {
@@ -119,6 +119,15 @@ function needValidate(el) {
 
 function showErrors(arr) {
     console.log(arr);
+    var elements = forms[0].elements;
+    for (var i = 0; i < arr.length; i++){
+    console.log("el", elements[i].getAttribute("name"));
+        console.log("arr", arr[i].name);
+
+        //if (elements[i].getAttribute("name") == arr[i].name){
+        //    console.log(arr[i].error);
+        //}
+    }
 
 }
 
@@ -152,45 +161,4 @@ function validation(e) {
         showErrors(errors);
     }
 }
-
-for (var i in ['input', 'change', 'blur', 'keyup']) {
-    cardNumber.addEventListener('input', formatCardCode, false);
-}
-//
-// for (var i in ['input', 'change', 'blur', 'keyup']) {
-//     cardExpiry.addEventListener('input', formatCardExpiry, false);
-// }
-function formatCardCode() {
-    var cardNumber = this.value.replace(/[^\d]/g, '').substring(0, 16);
-    cardNumber = cardNumber != '' ? cardNumber.match(/.{1,4}/g).join(' ') : '';
-    this.value = cardNumber;
-}
-
-// function formatCardExpiry() {
-//     // var cardCode = this.value.replace(/^\d{1,2}\-\d{1,2}$/).substring(0, 4);
-//     var cardCode = this.value != '' ? this.value.match(/.{1,2}/g).join('/') : '';
-//     this.value = cardCode;
-// }
-
-jQuery(function ($) {
-    $("#tel").mask("(999) 999-9999");
-});
-
-// $("#myform :input").tooltip({
-//
-//     // place tooltip on the right edge
-//     position: "center right",
-//
-//     // a little tweaking of the position
-//     offset: [-2, 10],
-//
-//     // use the built-in fadeIn/fadeOut effect
-//     effect: "fade",
-//
-//     // custom opacity setting
-//     opacity: 0.7
-//
-// });
-
-// }();
 
